@@ -1,3 +1,6 @@
+
+import 'cypress-iframe'
+
 define("Test Suite",()=>{
     it("handling alerts",()=>{
         cy.wait(3000);
@@ -39,7 +42,7 @@ define("Test Suite",()=>{
 
     })
 
-    it.only("handling iframes", ()=>{
+    it("handling iframes", ()=>{
         cy.visit("https://the-internet.herokuapp.com/iframe");
 
         let iframe = cy.get("#mce_0_ifr").its('0.contentDocument.body').should('be.visible').then(cy.wrap);
@@ -47,5 +50,19 @@ define("Test Suite",()=>{
         iframe.clear().type("Welcome Alien {ctrl+A}");
         cy.get("button[aria-label='Italic']").click();
 
+    })
+
+    it("handling iframe approach 2", ()=>{
+        cy.visit("https://the-internet.herokuapp.com/iframe");
+        cy.frameLoaded("#mce_0_ifr");
+        cy.iframe("#mce_0_ifr").clear().type("Welcome Alien {ctrl+A}");
+        cy.get("button[aria-label='Italic']").click();
+    })
+
+    it.only("handling mouse actions", ()=>{
+        cy.visit("https://demo.opencart.com/");
+        cy.xpath("//a[text()='Desktops']/parent::li/div/div/ul/li").should('not.be.visible')
+        cy.xpath("//a[text()='Desktops']").trigger('mouseover').click();
+        cy.xpath("//a[text()='Desktops']/parent::li/div/div/ul/li").should('be.visible')
     })
 })
