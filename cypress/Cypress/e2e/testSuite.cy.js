@@ -13,7 +13,6 @@ define("Test Suite",()=>{
             expect(t).to.contains("I am a JS Alert")
         })
 
-        
     })
 
     it("Test",()=>{
