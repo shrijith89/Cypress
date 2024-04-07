@@ -45,6 +45,7 @@ describe("Dropdown Test Suite", ()=>{
             }
         })
         cy.get("textarea[name='q']").contains("cypress automation tool");
+        cy.get("textarea[name='q']").should("have.value", "cypress automation tool");
     })
 
 })
