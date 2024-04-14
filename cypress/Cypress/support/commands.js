@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+///<reference types='Cypress' />
+///<reference types='cypress-xpath' />
+
+Cypress.Commands.add('getIframe', (iframe)=>{
+    return cy.get(iframe).its('0.contentDocument.body')
+        .should('be.visible')
+        .then(cy.wrap)
+})
+
+Cypress.Commands.add('getLink', (text) => {
+    cy.contains('a', text).click();
+})
