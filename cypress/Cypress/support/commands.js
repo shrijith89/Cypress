@@ -42,13 +42,3 @@
 //     return originalFn(subject, text, options);
 // });
 
-Cypress.Commands.add('login', ()=>{
-    cy.visit('https://admin.talview.org/login?redirect_url=https%253A%252F%252Fwt.talview.org%252Fworkflow&username=ashwini.s+master-recruiter@talview.com');
-    cy.get("input[type='password']").should('be.visible');
-    cy.fixture('example.json').then((data)=> {
-    cy.get("input[type='password']").type(data.password)
-    cy.get("input[type='password']").should('have.value', "Shri@098");
-    cy.get("input[type='password']").should('not.have.value', "Shri@98");
-    cy.contains('div', 'Sign In').click()
-})
-})
