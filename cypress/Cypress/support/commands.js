@@ -26,12 +26,19 @@
 ///<reference types='Cypress' />
 ///<reference types='cypress-xpath' />
 
-Cypress.Commands.add('getIframe', (iframe)=>{
-    return cy.get(iframe).its('0.contentDocument.body')
-        .should('be.visible')
-        .then(cy.wrap)
-})
+// Cypress.Commands.add('getIframe', (iframe)=>{
+//     return cy.get(iframe).its('0.contentDocument.body')
+//         .should('be.visible')
+//         .then(cy.wrap)
+// })
 
-Cypress.Commands.add('getLink', (text) => {
-    cy.contains('a', text).click();
-})
+// Cypress.Commands.overwriteQuery('contains', (originalFn, subject, filter, text, options = {}) => {
+//     if (typeof text === 'object') {
+//         options = text;
+//         text = filter;
+//         filter = undefined;
+//     }
+//     options.matchCase = false;
+//     return originalFn(subject, text, options);
+// });
+

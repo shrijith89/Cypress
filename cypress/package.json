@@ -4,16 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "cypress:open": "cypress open"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "e2e",
-    "tests"
-  ],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.7.1",
+    "cypress-mochawesome-reporter": "^3.8.2"
+  },
   "devDependencies": {
-    "cypress": "^12.9.0"
+    "cypress-xpath": "^2.0.1"
   }
 }
